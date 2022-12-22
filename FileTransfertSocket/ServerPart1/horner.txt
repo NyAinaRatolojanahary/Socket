@@ -1,0 +1,1 @@
+#include<stdio.h> #include<stdlib.h> #include<math.h>  typedef float vect[100];  // PROTOTYPES   void Horner(int deg, vect Pn, float *b, float al) ; void Save(vect x, vect P, vect dP, int n) ;  //----FONCTION---- void Horner(int deg, vect Pn, float *b, float al) {   int i;    b[0] = Pn[0] ;   for( i=0 ; i<=deg ; i++)   {     b[i] = Pn[i] + al * b[i-1] 
