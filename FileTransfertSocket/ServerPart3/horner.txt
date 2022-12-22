@@ -1,1 +1,0 @@
-P, P ;            x[0] = -4 ;   for( i=1 ; i<n ; i++)   {     x[i] = x[i-1] + h ;   }      for( i=0 ; i<n ; i++)   {     Horner(deg, Pn, &b[0], x[i]) ;     P[i] = b[deg];  printf("P(%f) = %f\n",x[i], P[i]) ;     Horner(deg-1, b, &c[0], x[i]) ;     dP[i] = c[deg -1];      printf("P'(%f) = %f\n",x[i], dP[i]) ;   }      Save(x, P, dP, n) ;      return 0; } 

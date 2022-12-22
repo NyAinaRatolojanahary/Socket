@@ -1,0 +1,88 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int choix(int m);
+void coeffAndDegree(int* n, float**nb);
+float calcul (float* an, int x, int nb);
+void steps(int m,int*n,float**nb,int x);
+
+int main(){
+	
+	
+	
+	///Donnees
+	int m=0;
+	int* n=1;
+	float**nb=1;
+	int x=1;
+	
+	
+	///Traitements
+	while(m!=3){
+	steps(m,n,nb,x);
+	}
+	
+	
+	///sortie
+	
+
+	return 0;
+}
+
+int choix(int m){
+	//int m=0;
+	printf("Choisiez l'action que vous souhaitez faire:\n");
+	printf("1: Entrer les coefficients de P(x)\n");
+	printf("2: Calculer P(x)\n");
+	printf("3: sortir du programme\n");
+	scanf("%i",&m);
+	return m;
+	}
+	
+void coeffAndDegree(int*n, float** nb){
+		
+	printf("Entrer le degree:\n");
+	scanf("%i",n);
+	float* temp= (float*)malloc((*n+1)*sizeof(float));
+		
+	for(int i=0; i<*n+1;i++){
+		printf("Entrer le  coefficient:\n");
+		scanf("%f",&temp[i]);
+	}
+	*nb=temp;
+}
+
+
+float calcul(float* c, int x, int nb){
+	scanf("%i",&x);
+	float init = c[nb-1]*x;
+	float rep = 0;
+	for(int i=nb-2; i > 0; i--){
+			rep = (init + c[i])*x + rep;
+			init= rep;
+	}
+	return rep+c[0];
+}
+
+
+void steps(int m,int*n,float**nb,int x){
+	
+	choix(m);
+	
+	switch(m){
+		
+	case 1:
+	coeffAndDegree(n,nb);
+	break;
+	
+	case 2:
+	calcul(*nb,x,*n);
+	break;
+	
+	case 3:
+	break;
+	
+	}
+	
+}
+
